@@ -1,0 +1,27 @@
+{"companies":[
+	{"name":"qwe",
+	"id":"1",
+	"address":"qwe",
+	"website":"qwe",
+	"email":"qwe",
+	"phone":"qwe",
+	"services":{
+		"cat1":["qwe"],
+		"cat2":["qwe"],
+		"cat3":["qwe"]
+		}
+	},
+	{"name":"qwe",
+	"id":"2",
+	"address":"qwe",
+	"website":"qwe",
+	"email":"qwe",
+	"phone":"qwe",
+	"services":{
+		"cat1":["qwe"],
+		"cat2":["qwe"],
+		"cat3":["qwe"]
+		}
+	}
+ ]
+}

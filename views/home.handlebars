@@ -1,0 +1,16 @@
+<h1>This is the homepage!!</h1>
+  
+  <div>
+    {{#each contacts}}
+        <h2>{{name}}</h2>
+        <p>{{website}}</p>
+        <p>{{email}}</p>
+        <p>{{phone}}</p>
+        <p>{{address}}</p>
+        <div id="tagsDiv">
+          {{#each tag}}
+            <span class="services">{{this}}<span class="delete services"> <img src="http://megaicons.net/static/img/icons_sizes/8/178/512/editing-delete-icon.png"></span></span>
+          {{/each}}
+        </div>
+    {{/each}}
+  </div>
