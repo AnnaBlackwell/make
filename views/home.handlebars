@@ -1,16 +1,14 @@
 <h1>This is the homepage!!</h1>
   
-  <div>
-    {{#each contacts}}
-        <h2>{{name}}</h2>
-        <p>{{website}}</p>
-        <p>{{email}}</p>
-        <p>{{phone}}</p>
-        <p>{{address}}</p>
-        <div id="tagsDiv">
-          {{#each tags}}
-            <span class="services">{{this}}</span>
-          {{/each}}
-        </div>
+  <div class="contacts">
+    {{#each EngineeringContacts}}
+      <div class="eachContact">
+        <h2>{{this.Name}}</h2>
+        <p>{{this.Website}}</p>
+        <p>{{this.Email}}</p>
+        <p>{{this.Phone}}</p>
+        <p>{{this.Address}}</p>
+        <p>{{this.Tags}}</p>
+      </div>
     {{/each}}
   </div>

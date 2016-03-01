@@ -3,12 +3,22 @@ var exphbs  = require('express-handlebars')
 var bodyParser = require('body-parser')
 
 exports = module.exports = function (app, db) {
-  var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+	var knex = require('knex')({
+		client: 'sqlite3',
+		connection: {
+			filename: './data/EngineeringContacts.sqlite'
+			},
+	useNullAsDefault: true
+	})
+
+	var urlencodedParser = bodyParser.urlencoded({ extended: false })
     app.get('/', function (req, res) {
-    db.getAll('contacts', function (err, contacts) {
-      console.log('contact', contacts)
-      res.render('home', {contacts: contacts})
+		knex.select('*').from('EngineeringContacts')
+			.then(function (resp) {
+	       		console.log('done', resp)
+	       		res.render('home', {EngineeringContacts: resp})
+	      	})
+    
     })
-  })
 }
