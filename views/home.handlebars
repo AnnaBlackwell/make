@@ -1,14 +1,18 @@
 <h1>This is the homepage!!</h1>
   
-  <div class="contacts">
+  <div class="contacts container-fluid">
     {{#each EngineeringContacts}}
-      <div class="eachContact">
-        <h2>{{this.Name}}</h2>
-        <p>{{this.Website}}</p>
-        <p>{{this.Email}}</p>
-        <p>{{this.Phone}}</p>
-        <p>{{this.Address}}</p>
-        <p>{{this.Tags}}</p>
+      <div class="each-contact panel panel-primary col-md-8 col-md-offset-2">
+        <div class="panel-heading">
+          <h2 class="panel-title">{{this.Name}}</h2>
+        </div>
+        <div class="panel-body">
+          <a href={{this.Website}}>{{this.Website}}</a><br>
+          <a href="mailto:{{this.Email}}">{{this.Email}}</a>
+          <p>{{this.Phone}}</p>
+          <p>{{this.Address}}</p>
+          <p>{{this.Tags}}</p>
+        </div>
       </div>
     {{/each}}
   </div>
