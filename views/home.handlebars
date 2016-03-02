@@ -1,6 +1,16 @@
 <div class="jumbotron">
-  <h1>Heading</h1>
+  <h1 class="col-md-offset-2">Heading</h1>
 </div>
+  <h2 class="col-md-offset-2">What services are you looking for?</h2>
+  <div id="category-buttons" class="col-md-offset-2">
+    <p>
+      <button type="button" id="plastic-injection" class="btn btn-success btn-lg">Plastic Injection Molding</button>
+      <button type="button" id="laser-cutting" class="btn btn-info btn-lg">Laser/Water-jet Cutting</button>
+      <button type="button" id="prototype" class="btn btn-warning btn-lg">Prototype Building</button>
+      <button type="button" id= "3d-printing"class="btn btn-danger btn-lg">3d Printing</button>
+      <button type="button" id="clear-filters" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-remove"></span>Clear Filters</button>
+    </p>
+  </div>
 
     <div class="contacts container-fluid">
     {{#each EngineeringContacts}}
@@ -11,15 +21,10 @@
           </span>
         </div>
         <div class="panel-body">
-          <h4>Website:</h3>
           <a href={{this.Website}}>{{this.Website}}</a><br>
-          <h4>Email:</h3>
           <a href="mailto:{{this.Email}}">{{this.Email}}</a>
-          <h4>Phone:</h3>
           <p>{{this.Phone}}</p>
-          <h4>Address:</h3>
           <p>{{this.Address}}</p>
-          <h4>Services:</h3>
           <p>{{this.Tags}}</p>
         </div>
       </div>
