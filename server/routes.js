@@ -2,6 +2,7 @@
 var exphbs  = require('express-handlebars')
 var bodyParser = require('body-parser')
 
+
 exports = module.exports = function (app, db) {
 
 	var knex = require('knex')({
@@ -13,12 +14,12 @@ exports = module.exports = function (app, db) {
 	})
 
 	var urlencodedParser = bodyParser.urlencoded({ extended: false })
+    
     app.get('/', function (req, res) {
 		knex.select('*').from('EngineeringContacts')
 			.then(function (resp) {
 	       		console.log('done', resp)
 	       		res.render('home', {EngineeringContacts: resp})
 	      	})
-    
     })
 }

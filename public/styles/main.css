@@ -2,3 +2,23 @@
 	margin-bottom: 30px;
 	margin-top: 30px;
 }
+
+
+.jumbotron {
+	background-image: url('../images/lathe-thin.jpeg');
+	background-size: cover;
+	color: #EABE7C;
+}
+
+.btn-lg {
+	background-color: #546A76;
+	color: #FFF;
+}
+
+.clear-filter {
+	background-color: #88A0A8;
+}
+
+#main-header {
+	font-size: 6em;
+}
