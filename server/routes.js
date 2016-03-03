@@ -15,8 +15,45 @@ exports = module.exports = function (app, db) {
 
 	var urlencodedParser = bodyParser.urlencoded({ extended: false })
     
+    //all results and clear filter
     app.get('/', function (req, res) {
 		knex.select('*').from('EngineeringContacts')
+			.then(function (resp) {
+	       		console.log('done', resp)
+	       		res.render('home', {EngineeringContacts: resp})
+	      	})
+    })
+
+    //filter for plastic injection molding
+    app.get('/plastics', function(req, res) {
+		knex.select('*').from('EngineeringContacts').where('Category', 'Plastic Moulding')
+			.then(function (resp) {
+	       		console.log('done', resp)
+	       		res.render('home', {EngineeringContacts: resp})
+	      	})
+    })
+
+    //filter for plastic injection molding
+    app.get('/laser', function(req, res) {
+		knex.select('*').from('EngineeringContacts').where('Category', 'Laser/Water-Jet Cutting')
+			.then(function (resp) {
+	       		console.log('done', resp)
+	       		res.render('home', {EngineeringContacts: resp})
+	      	})
+    })
+
+        //filter for prototype building
+    app.get('/prototype', function(req, res) {
+		knex.select('*').from('EngineeringContacts').where('Category', 'Prototype building')
+			.then(function (resp) {
+	       		console.log('done', resp)
+	       		res.render('home', {EngineeringContacts: resp})
+	      	})
+    })
+
+        //filter for 3D printing
+    app.get('/3dprint', function(req, res) {
+		knex.select('*').from('EngineeringContacts').where('Category', '3D Printing')
 			.then(function (resp) {
 	       		console.log('done', resp)
 	       		res.render('home', {EngineeringContacts: resp})
