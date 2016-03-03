@@ -1,19 +1,42 @@
+var request = require('superagent')
+var $ = require('jquery')
+
 $("#plastic-injection").click(function() {
-	console.log('plastic')
+	request
+		.get('/plastics')
+		.end(function(err, res){
+			console.log('plastic')
+	})
 })
 
 $("#laser-cutting").click(function() {
-	console.log('laser cut')
+	request
+		.get('/laser')
+		.end(function(err, res){
+			console.log('laser cut')
+	})
 })
 
 $("#prototype").click(function() {
-	console.log('prototype')
+	request
+		.get('/prototype')
+		.end(function(err, res){
+			console.log('prototype')
+	})
 })
 
 $("#3d-printing").click(function() {
-	console.log('3d printing')
+	request
+		.get('/3Dprint')
+		.end(function(err, res){
+			console.log('3d printing')
+	})
 })
 
 $("#clear-filters").click(function() {
-	console.log('clear filter')
+	request
+	.get('/')
+	.end(function(err, res) {
+		console.log('clear filter')
+	})
 })
