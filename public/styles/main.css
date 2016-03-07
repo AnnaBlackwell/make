@@ -3,16 +3,17 @@
 	margin-top: 30px;
 }
 
-
 .jumbotron {
 	background-image: url('../images/lathe-thin.jpeg');
 	background-size: cover;
-	color: #EABE7C;
+	color: #FFF;
 }
 
 .btn-lg {
-	background-color: #546A76;
+	background-color: #166088;
+	/*#546A76;*/
 	color: #FFF;
+	margin: 5px;
 }
 
 .clear-filter {
@@ -22,3 +23,13 @@
 #main-header {
 	font-size: 6em;
 }
+
+#stripe {
+	background-color: black;
+	height: 100px;
+	width: 100%;
+	opacity: 0.5;
+}
+
+
+
