@@ -3,13 +3,15 @@
     <h1 class="col-md-offset-1" id='main-header'>Find a vendor</h1>
   </div>
 </div>
-  <h2 class="col-md-offset-2">What engineering services are you looking for?</h2>
-  <div id="category-buttons" class="col-md-offset-2">
+  <div id="category-buttons" class="col-md-offset-2 col-md-8">
     <p>
       <button type="button" id="plastic-injection" class="btn btn-lg">Plastic Injection Molding</button>
       <button type="button" id="laser-cutting" class="btn btn-lg" >Laser/Water-jet Cutting</button>
       <button type="button" id="prototype" class="btn  btn-lg">Prototype Building</button>
-      <button type="button" id= "3d-printing"class="btn btn-lg">3d Printing</button>
+      <button type="button" id= "3d-printing" class="btn btn-lg">3d Printing</button>
+      <button type="button" id= "packaging" class="btn btn-lg">Packaging</button>
+      <button type="button" id= "design-services" class="btn btn-lg">Design services</button>
+      <button type="button" id= "electronics" class="btn btn-lg">Electronics Design</button>
       <button type="button" id="clear-filters" class="btn btn-lg clear-filter"><span class="glyphicon glyphicon-remove"></span>Clear Filters</button>
     </p>
   </div>
@@ -19,10 +21,10 @@
       <div class="each-contact panel panel-default col-md-8 col-md-offset-2">
        <div class="panel-heading">
           <h2 class="panel-title">{{this.Name}}</h2>
-          <span class="glyphicon glyphicon-edit pull-right">
-          </span>
         </div>
         <div class="panel-body">
+          <span class="glyphicon glyphicon-edit pull-right">
+          </span>
           <a href={{this.Website}}>{{this.Website}}</a><br>
           <a href="mailto:{{this.Email}}">{{this.Email}}</a>
           <p>{{this.Phone}}</p>

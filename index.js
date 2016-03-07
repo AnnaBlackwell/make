@@ -17,8 +17,22 @@ $("#3d-printing").click(function() {
 	window.location='/3Dprint'
 })
 
+$("#packaging").click(function() {
+	window.location='/packaging'
+})
+
+$("#design-services").click(function() {
+	window.location='/design'
+})
+
+$("#electronics").click(function() {
+	window.location='/electronics'
+})
+
 $("#clear-filters").click(function() {
 	window.location='/'
 })
+
+
 
 

@@ -54,6 +54,30 @@ exports = module.exports = function (app, db) {
 	       		res.render('home', {EngineeringContacts: resp})
 	      	})
     })
+
+        //filter for packaging
+    app.get('/packaging', function(req, res) {
+		knex.select('*').from('EngineeringContacts').where('Category', 'Packaging')
+			.then(function (resp) {
+	       		res.render('home', {EngineeringContacts: resp})
+	      	})
+    })
+
+        //filter for design
+    app.get('/design', function(req, res) {
+		knex.select('*').from('EngineeringContacts').where('Category', 'Design Services')
+			.then(function (resp) {
+	       		res.render('home', {EngineeringContacts: resp})
+	      	})
+    })
+
+        //filter for electronics design
+    app.get('/electronics', function(req, res) {
+		knex.select('*').from('EngineeringContacts').where('Category', 'Electronics Design')
+			.then(function (resp) {
+	       		res.render('home', {EngineeringContacts: resp})
+	      	})
+    })
         //services by contact
         //still needs work
   //   app.get('/services', function(req, res) {
@@ -64,4 +88,5 @@ exports = module.exports = function (app, db) {
 	 //       		res.render('home', {services: resp})
 	 //    	})
   //   })
+
 }
