@@ -16,7 +16,7 @@
 
     <div class="contacts container-fluid">
     {{#each EngineeringContacts}}
-      <div class="each-contact panel panel-primary col-md-8 col-md-offset-2">
+      <div class="each-contact panel panel-default col-md-8 col-md-offset-2">
        <div class="panel-heading">
           <h2 class="panel-title">{{this.Name}}</h2>
           <span class="glyphicon glyphicon-edit pull-right">
@@ -27,7 +27,13 @@
           <a href="mailto:{{this.Email}}">{{this.Email}}</a>
           <p>{{this.Phone}}</p>
           <p>{{this.Address}}</p>
-          <p>{{this.Tags}}</p>
+          {{#each EngineeringContacts.services}}
+            <div class="service-tags">
+              <h3>
+                <span class="label label-success">{{this.Service}}</span>
+              </h3>
+            </div>
+          {{/each}}
         </div>
       </div>
     {{/each}}

@@ -10,8 +10,10 @@
 }
 
 .btn-lg {
-	background-color: #546A76;
+	background-color: #166088;
+	/*#546A76;*/
 	color: #FFF;
+	margin: 5px;
 }
 
 .clear-filter {
@@ -28,5 +30,6 @@
 	width: 100%;
 	opacity: 0.5;
 }
+
 
 

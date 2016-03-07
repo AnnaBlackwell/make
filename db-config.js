@@ -20,6 +20,5 @@ var Knex = require('knex')
 var knex = Knex(config.database)
 
 module.exports = {
-  knex: knex,
   config: config
 }

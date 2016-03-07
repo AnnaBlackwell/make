@@ -20,3 +20,5 @@ $("#3d-printing").click(function() {
 $("#clear-filters").click(function() {
 	window.location='/'
 })
+
+

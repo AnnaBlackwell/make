@@ -19,7 +19,6 @@ exports = module.exports = function (app, db) {
     app.get('/', function (req, res) {
 		knex.select('*').from('EngineeringContacts')
 			.then(function (resp) {
-	       		console.log('done', resp)
 	       		res.render('home', {EngineeringContacts: resp})
 	      	})
     })
@@ -28,7 +27,6 @@ exports = module.exports = function (app, db) {
     app.get('/plastics', function(req, res) {
 		knex.select('*').from('EngineeringContacts').where('Category', 'Plastic Moulding')
 			.then(function (resp) {
-	       		console.log('done', resp)
 	       		res.render('home', {EngineeringContacts: resp})
 	      	})
     })
@@ -37,7 +35,6 @@ exports = module.exports = function (app, db) {
     app.get('/laser', function(req, res) {
 		knex.select('*').from('EngineeringContacts').where('Category', 'Laser/Water-Jet Cutting')
 			.then(function (resp) {
-	       		console.log('done', resp)
 	       		res.render('home', {EngineeringContacts: resp})
 	      	})
     })
@@ -46,7 +43,6 @@ exports = module.exports = function (app, db) {
     app.get('/prototype', function(req, res) {
 		knex.select('*').from('EngineeringContacts').where('Category', 'Prototype building')
 			.then(function (resp) {
-	       		console.log('done', resp)
 	       		res.render('home', {EngineeringContacts: resp})
 	      	})
     })
@@ -55,8 +51,17 @@ exports = module.exports = function (app, db) {
     app.get('/3dprint', function(req, res) {
 		knex.select('*').from('EngineeringContacts').where('Category', '3D Printing')
 			.then(function (resp) {
-	       		console.log('done', resp)
 	       		res.render('home', {EngineeringContacts: resp})
 	      	})
     })
+        //services by contact
+        //still needs work
+  //   app.get('/services', function(req, res) {
+		// knex.select('*').from('services')
+		// knex.from('services').innerJoin('EngineeringContacts', 'Services.Business Name', 'EngineeringContacts.Name').orderBy('EngineeringContacts.Name', 'asc')
+		// 	.then(function (resp) {
+	 //       		console.log('resp: ', resp[15].Service)
+	 //       		res.render('home', {services: resp})
+	 //    	})
+  //   })
 }
