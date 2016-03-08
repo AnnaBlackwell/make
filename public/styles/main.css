@@ -31,5 +31,12 @@
 	opacity: 0.5;
 }
 
+#map { 
+	position: absolute; 
+	top: 0; 
+	bottom: 0; 
+	max-width: 400px;
+	max-height: 300px;
+}
 
 
