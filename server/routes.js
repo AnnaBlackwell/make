@@ -3,6 +3,7 @@ var exphbs  = require('express-handlebars')
 var bodyParser = require('body-parser')
 var bcrypt = require('bcrypt')
 var uuid = require('node-uuid')
+var _ = require('lodash')
 
 exports = module.exports = function (app, db) {
 
@@ -18,11 +19,27 @@ exports = module.exports = function (app, db) {
     
     //all results and clear filter
     app.get('/', function (req, res) {
-		knex.select('*').from('EngineeringContacts')
+		knex.from('services').innerJoin('EngineeringContacts', 'services.Business Name', 'EngineeringContacts.Name').orderBy('EngineeringContacts.Name', 'asc')
 			.then(function (resp) {
-	       		res.render('home', {EngineeringContacts: resp})
-	      	})
-    })
+				var businesses = []
+				var pairs = {}
+				resp.forEach(function(business) {
+					var name = business.Name
+					var service = business.Service
+					if (!pairs[name]) {
+						pairs[name] = {}
+					}
+					if (!pairs[name]['services']) {
+						pairs[name]['services'] = []
+					}
+					pairs[name]['services'].push(service)
+				})
+				console.log(pairs)
+       			})
+		// res.render('home', {EngineeringContacts: resp})
+		res.render('home', {Services: pairs})
+   			})
+	      	
 
     //filter for plastic injection molding
     app.get('/plastics', function(req, res) {
@@ -80,15 +97,14 @@ exports = module.exports = function (app, db) {
 	      	})
     })
         //services by contact
-        //still needs work
-  //   app.get('/services', function(req, res) {
-		// knex.select('*').from('services')
-		// knex.from('services').innerJoin('EngineeringContacts', 'Services.Business Name', 'EngineeringContacts.Name').orderBy('EngineeringContacts.Name', 'asc')
-		// 	.then(function (resp) {
-	 //       		console.log('resp: ', resp[15].Service)
-	 //       		res.render('home', {services: resp})
-	 //    	})
-  //   })
+    app.get('/services', function(req, res) {
+		knex.select('*').from('services')
+		knex.from('services').innerJoin('EngineeringContacts', 'services.Business Name', 'EngineeringContacts.Name').orderBy('EngineeringContacts.Name', 'asc')
+			.then(function (resp) {
+	       		console.log('resp: ', resp)
+	       		res.render('home', {services: resp})
+	    	})
+    })
 
 //Sign-in
 	app.get('/sign-in', function (req, res) {

@@ -31,7 +31,7 @@
     "handlebars": "^4.0.5",
     "jquery": "^2.2.1",
     "knex": "^0.10.0",
-    "lodash": "^4.5.1",
+    "lodash": "^4.6.1",
     "mapbox": "^1.0.0-beta",
     "node-uuid": "^1.4.7",
     "path": "^0.12.7",
