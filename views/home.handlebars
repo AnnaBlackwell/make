@@ -15,6 +15,12 @@
       <button type="button" id="clear-filters" class="btn btn-lg clear-filter"><span class="glyphicon glyphicon-remove"></span>Clear Filters</button>
     </p>
   </div>
+
+  <div id="add-new" class="col-md-1">
+    <h3>Add a new contact</h3>
+    <p><a href="/sign-in">Sign-in</a> or <a href="/sign-up">Sign-up</a></p>
+  </div>
+
     <div class="contacts container-fluid">
     {{#each EngineeringContacts}}
       <div class="each-contact panel panel-default col-md-8 col-md-offset-2">
@@ -22,8 +28,6 @@
           <h2 class="panel-title">{{this.Name}}</h2>
         </div>
         <div class="panel-body">
-          <span class="glyphicon glyphicon-edit pull-right">
-          </span>
           <a href={{this.Website}}>{{this.Website}}</a><br>
           <a href="mailto:{{this.Email}}">{{this.Email}}</a>
           <p>{{this.Phone}}</p>
