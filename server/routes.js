@@ -21,26 +21,26 @@ exports = module.exports = function (app, db) {
     app.get('/', function (req, res) {
 		knex.from('services').innerJoin('EngineeringContacts', 'services.Business Name', 'EngineeringContacts.Name').orderBy('EngineeringContacts.Name', 'asc')
 			.then(function (resp) {
-				var businesses = []
-				var pairs = {}
+				var groups = {}
 				resp.forEach(function(business) {
 					var name = business.Name
 					var service = business.Service
-					if (!pairs[name]) {
-						pairs[name] = {}
+					if (!groups[name]) {
+						groups[name] = business
+						groups[name].services = []
 					}
-					if (!pairs[name]['services']) {
-						pairs[name]['services'] = []
-					}
-					pairs[name]['services'].push(service)
+					groups[name].services.push(service)
 				})
-				console.log(pairs)
+				console.log(groups)
        			})
-		// res.render('home', {EngineeringContacts: resp})
-		res.render('home', {Services: pairs})
+				//what is this doing?
+				// _.map(groups, function(group) {
+				// 	return group
+				// })
+
+		res.render('home', {EngineeringContacts: groups})
    			})
 	      	
-
     //filter for plastic injection molding
     app.get('/plastics', function(req, res) {
 		knex.select('*').from('EngineeringContacts').where('Category', 'Plastic Moulding')
