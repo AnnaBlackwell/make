@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+
+    <form method="POST" action="/add-contact">
+      <fieldset>
+        <legend>Please add a new business</legend>
+
+        <div class="form-group">
+          <label for="name">Business name</label>
+          <input class="form-control" type="text" name="name" id="business-name">
+        </div>
+
+        <div class="form-group">
+          <label for="website">Website</label>
+          <input class="form-control" type="url" name="website" id="website-input">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input class="form-control" type="email" name="email" id="email-input">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone number</label>
+          <input class="form-control" type="tel" name="phone" id="phone-input">
+        </div>
+
+        <div class="input-group">
+          <label for="category">Primary category</label><br>
+          <input class="input-control" type="radio" name="category" value="Plastic Injection Molding">Plastic Injection Molding<br>
+          <input class="input-control" type="radio" name="category" value="Laser/Water-Jet Cutting">Laser/Water-Jet Cutting<br>
+          <input class="input-control" type="radio" name="category" value="Prototype building">Prototype building<br>
+          <input class="input-control" type="radio" name="category" value="3D Printing">3D Printing<br>
+          <input class="input-control" type="radio" name="category" value="Packaging">Packaging<br>
+          <input class="input-control" type="radio" name="category" value="Design Services">Design Services<br>
+          <input class="input-control" type="radio" name="category" value="Electronics Design">Electronics Design<br>
+        </div>
+
+        <div class="input-group">
+          <label for="services">Services</label><br>
+          <input class="form-control" type="text" name="service" id="service-input">
+        </div>
+
+        <div class="input-group">
+          <label for="address">Address</label><br>
+          <input class="form-control" maxlength=200 type="text" name="address" id="address-input">
+        </div>
+
+        <div class="input-group">
+          <label for="notes">Other comments</label><br>
+          <input class="form-control" type="text" name="notes" id="notes-input">
+        </div>
+
+        <div class="form-group">
+          <input id="add-contact-button" class="btn btn-primary" type="submit" value="Add contact">
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</div>

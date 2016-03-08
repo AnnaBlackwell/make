@@ -1,7 +1,8 @@
 'use strict'
 var exphbs  = require('express-handlebars')
 var bodyParser = require('body-parser')
-
+var bcrypt = require('bcrypt')
+var uuid = require('node-uuid')
 
 exports = module.exports = function (app, db) {
 
@@ -89,4 +90,64 @@ exports = module.exports = function (app, db) {
 	 //    	})
   //   })
 
+//Sign-in
+	app.get('/sign-in', function (req, res) {
+	  res.render('sign-in')
+	})
+
+	app.post('/sign-in', function (req, res) {
+	  //check that user exists in the database
+	  //check that password matches
+	  res.redirect('/add-contact')
+	})
+
+//Sign-up
+	app.get('/sign-up', function (req, res) {
+	  res.render('sign-up')
+	})
+
+	app.post('/sign-up', urlencodedParser, function (req, res) {
+		var password = req.body.password
+		var user = {
+		    email: req.body.email, 
+		    name: req.body.name
+		}
+		//also make a user id
+		bcrypt.genSalt(10, function(err, salt) {
+			bcrypt.hash(password, salt, function(err, hash) {
+		    user.password_hash = hash
+		    console.log('user')
+		    knex('users').insert(user)
+				.then(function() {
+					console.log('done')
+				})
+			res.redirect('/add-contact')
+		    })
+		})
+	})
+
+//Add contact
+	app.get('/add-contact', function (req, res) {
+	  res.render('add-contact')
+	})
+
+	app.post('/add-contact', urlencodedParser, function (req, res) {
+		var contact = {
+			Name: req.body.name,
+  			Website: req.body.name,
+  			Email: req.body.email,
+			Phone: req.body.phone,
+			Category: req.body.category,
+			Tags: req.body.service,
+			//problem: doesn't put into linked services table
+			Address: req.body.address,
+			Notes: req.body.notes
+		}
+		console.log('contact', contact)
+		knex('EngineeringContacts').insert('contact')
+			.then(function() {
+				console.log('done')
+			})
+		res.redirect('/')
+	})
 }
