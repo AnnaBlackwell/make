@@ -3,6 +3,7 @@ var exphbs  = require('express-handlebars')
 var bodyParser = require('body-parser')
 var bcrypt = require('bcrypt')
 var uuid = require('node-uuid')
+var _ = require('lodash')
 
 exports = module.exports = function (app, db) {
 
@@ -18,77 +19,147 @@ exports = module.exports = function (app, db) {
     
     //all results and clear filter
     app.get('/', function (req, res) {
-		knex.select('*').from('EngineeringContacts')
+		knex.from('services').innerJoin('EngineeringContacts', 'services.Business Name', 'EngineeringContacts.Name').orderBy('EngineeringContacts.Name', 'asc')
 			.then(function (resp) {
-	       		res.render('home', {EngineeringContacts: resp})
-	      	})
-    })
-
+				var groups = {}
+				resp.forEach(function(business) {
+					var name = business.Name
+					var service = business.Service
+					if (!groups[name]) {
+						groups[name] = business
+						groups[name].services = []
+					}
+					groups[name].services.push(service)
+				})
+				res.render('home', {EngineeringContacts: groups})
+       			})
+   			})
+	      	
     //filter for plastic injection molding
     app.get('/plastics', function(req, res) {
-		knex.select('*').from('EngineeringContacts').where('Category', 'Plastic Moulding')
+		knex.from('services').innerJoin('EngineeringContacts', 'services.Business Name', 'EngineeringContacts.Name').where('Category', 'Plastic Moulding').orderBy('EngineeringContacts.Name', 'asc')
 			.then(function (resp) {
-	       		res.render('home', {EngineeringContacts: resp})
-	      	})
-    })
+				var groups = {}
+				resp.forEach(function(business) {
+					var name = business.Name
+					var service = business.Service
+					if (!groups[name]) {
+						groups[name] = business
+						groups[name].services = []
+					}
+					groups[name].services.push(service)
+				})
+				res.render('home', {EngineeringContacts: groups})
+       			})
+   			})
 
     //filter for plastic injection molding
     app.get('/laser', function(req, res) {
-		knex.select('*').from('EngineeringContacts').where('Category', 'Laser/Water-Jet Cutting')
+		knex.from('services').innerJoin('EngineeringContacts', 'services.Business Name', 'EngineeringContacts.Name').where('Category', 'Laser/Water-Jet Cutting').orderBy('EngineeringContacts.Name', 'asc')
 			.then(function (resp) {
-	       		res.render('home', {EngineeringContacts: resp})
-	      	})
-    })
+				var groups = {}
+				resp.forEach(function(business) {
+					var name = business.Name
+					var service = business.Service
+					if (!groups[name]) {
+						groups[name] = business
+						groups[name].services = []
+					}
+					groups[name].services.push(service)
+				})
+				res.render('home', {EngineeringContacts: groups})
+       			})
+   			})
 
         //filter for prototype building
     app.get('/prototype', function(req, res) {
-		knex.select('*').from('EngineeringContacts').where('Category', 'Prototype building')
+		knex.from('services').innerJoin('EngineeringContacts', 'services.Business Name', 'EngineeringContacts.Name').where('Category', 'Prototype building').orderBy('EngineeringContacts.Name', 'asc')
 			.then(function (resp) {
-	       		res.render('home', {EngineeringContacts: resp})
-	      	})
-    })
+				var groups = {}
+				resp.forEach(function(business) {
+					var name = business.Name
+					var service = business.Service
+					if (!groups[name]) {
+						groups[name] = business
+						groups[name].services = []
+					}
+					groups[name].services.push(service)
+				})
+				res.render('home', {EngineeringContacts: groups})
+       			})
+   			})
 
         //filter for 3D printing
     app.get('/3dprint', function(req, res) {
-		knex.select('*').from('EngineeringContacts').where('Category', '3D Printing')
+		knex.from('services').innerJoin('EngineeringContacts', 'services.Business Name', 'EngineeringContacts.Name').where('Category', '3D Printing').orderBy('EngineeringContacts.Name', 'asc')
 			.then(function (resp) {
-	       		res.render('home', {EngineeringContacts: resp})
-	      	})
-    })
+				var groups = {}
+				resp.forEach(function(business) {
+					var name = business.Name
+					var service = business.Service
+					if (!groups[name]) {
+						groups[name] = business
+						groups[name].services = []
+					}
+					groups[name].services.push(service)
+				})
+				res.render('home', {EngineeringContacts: groups})
+       			})
+   			})
 
         //filter for packaging
     app.get('/packaging', function(req, res) {
-		knex.select('*').from('EngineeringContacts').where('Category', 'Packaging')
+		knex.from('services').innerJoin('EngineeringContacts', 'services.Business Name', 'EngineeringContacts.Name').where('Category', 'Packaging').orderBy('EngineeringContacts.Name', 'asc')
 			.then(function (resp) {
-	       		res.render('home', {EngineeringContacts: resp})
-	      	})
-    })
+				var groups = {}
+				resp.forEach(function(business) {
+					var name = business.Name
+					var service = business.Service
+					if (!groups[name]) {
+						groups[name] = business
+						groups[name].services = []
+					}
+					groups[name].services.push(service)
+				})
+				res.render('home', {EngineeringContacts: groups})
+       			})
+   			})
 
         //filter for design
     app.get('/design', function(req, res) {
-		knex.select('*').from('EngineeringContacts').where('Category', 'Design Services')
+		knex.from('services').innerJoin('EngineeringContacts', 'services.Business Name', 'EngineeringContacts.Name').where('Category', 'Design Services').orderBy('EngineeringContacts.Name', 'asc')
 			.then(function (resp) {
-	       		res.render('home', {EngineeringContacts: resp})
-	      	})
-    })
+				var groups = {}
+				resp.forEach(function(business) {
+					var name = business.Name
+					var service = business.Service
+					if (!groups[name]) {
+						groups[name] = business
+						groups[name].services = []
+					}
+					groups[name].services.push(service)
+				})
+				res.render('home', {EngineeringContacts: groups})
+       			})
+   			})
 
         //filter for electronics design
     app.get('/electronics', function(req, res) {
-		knex.select('*').from('EngineeringContacts').where('Category', 'Electronics Design')
+		knex.from('services').innerJoin('EngineeringContacts', 'services.Business Name', 'EngineeringContacts.Name').where('Category', 'Electronics Design').orderBy('EngineeringContacts.Name', 'asc')
 			.then(function (resp) {
-	       		res.render('home', {EngineeringContacts: resp})
-	      	})
-    })
-        //services by contact
-        //still needs work
-  //   app.get('/services', function(req, res) {
-		// knex.select('*').from('services')
-		// knex.from('services').innerJoin('EngineeringContacts', 'Services.Business Name', 'EngineeringContacts.Name').orderBy('EngineeringContacts.Name', 'asc')
-		// 	.then(function (resp) {
-	 //       		console.log('resp: ', resp[15].Service)
-	 //       		res.render('home', {services: resp})
-	 //    	})
-  //   })
+				var groups = {}
+				resp.forEach(function(business) {
+					var name = business.Name
+					var service = business.Service
+					if (!groups[name]) {
+						groups[name] = business
+						groups[name].services = []
+					}
+					groups[name].services.push(service)
+				})
+				res.render('home', {EngineeringContacts: groups})
+       			})
+   			})
 
 //Sign-in
 	app.get('/sign-in', function (req, res) {
