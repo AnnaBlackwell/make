@@ -32,7 +32,7 @@
           <a href="mailto:{{this.Email}}">{{this.Email}}</a>
           <p>{{this.Phone}}</p>
           <p>{{this.Address}}</p>
-          {{#each services in EngineeringContacts}}
+          {{#each this.services}}
             <div class="service-tags">
               <h3>
                 <span class="label label-success">{{this}}</span>
